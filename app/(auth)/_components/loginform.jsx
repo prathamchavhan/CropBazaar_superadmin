@@ -306,44 +306,37 @@ export default function LoginFrom() {
         },
     ]
     const { session } = useUserSession();
+
+
+    
 useEffect(() => {
     const checkTeam = async () => {
         if (!session?.user) return;
 
         const user = session.user;
 
-        // 1️⃣ Check if user already exists in teams
+        // CHECK IF USER IS IN TEAMS TABLE
         const { data: existing } = await supabase
             .from("teams")
             .select("*")
             .eq("email", user.email)
-            .single();
+            .maybeSingle();
 
-        // 2️⃣ If not exist → CREATE AUTOMATIC UUID USER
+        // ❌ NOT ALLOWED
         if (!existing) {
-            const { error: insertError } = await supabase
-                .from("teams")
-                .insert([{ email: user.email }]);  // uuid auto generated
-
-            if (insertError) {
-                toast.error("Something went wrong");
-                console.log(insertError);
-                return;
-            }
-
-            toast.success("New admin added automatically");
-            router.push("/dashboard");
+            await supabase.auth.signOut();
+            toast.error("You are not authorized to access admin dashboard");
+            router.push("/");
             return;
         }
 
-        // 3️⃣ if exists → login normally
+        // ✅ ALLOWED
         toast.success("Login successful");
         router.push("/dashboard");
     };
 
     checkTeam();
 }, [session]);
-
 
     useEffect(() => {
         const interval = setInterval(() => {
