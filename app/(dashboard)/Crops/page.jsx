@@ -1,4 +1,5 @@
-import CropList from "./_components/CropLists";
+import CropList from "./_components/CropList";
+
 
 export default function Home() {
   return (
