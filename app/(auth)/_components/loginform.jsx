@@ -413,7 +413,7 @@ const handleVerifyOTP = async (e) => {
 
     return (
         <div className="!flex lg:min-h-screen">
-            {/* Left side */}
+        
             <div
                 className="hidden lg:flex lg:w-[45%] bg-[#B2EBF2] flex-col items-center justify-center p-12 relative"
                 style={{
@@ -540,24 +540,7 @@ const handleVerifyOTP = async (e) => {
                                 </Button>
                             </>
                         )}
-                        <p className="text-center text-sm text-muted-foreground">
-                            By continuing, you agree to Hyreso's{" "}
-                            <Link
-                                className="underline underline-offset-4 hover:text-primary"
-                                href="https://hyreso.com/terms-and-conditions"
-                                target="_blank"
-                            >
-                                Terms of Service
-                            </Link>{" "}
-                            and{" "}
-                            <Link
-                                className="underline underline-offset-4 hover:text-primary"
-                                href="https://hyreso.com/privacy-policy"
-                                target="_blank"
-                            >
-                                Privacy Policy
-                            </Link>
-                        </p>
+                        
                     </div>
                    
                 </div>

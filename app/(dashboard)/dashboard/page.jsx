@@ -6,7 +6,7 @@ import RoleTabs from "./_components/RoleTabs";
 
 export default function Home() {
   return (
-    <div className="p-10">
+    <div className="flex flex-col flex-1 overflow-hidden space-y-6">
       <RoleTabs />
     </div>
   );

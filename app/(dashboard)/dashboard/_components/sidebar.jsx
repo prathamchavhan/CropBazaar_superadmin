@@ -9,9 +9,9 @@ import { usePathname } from "next/navigation"
 const menuItems = [
   { icon: LayoutDashboard, label: "Dashboard", href: "/dashboard", id: "dashboard" },
   { icon: Briefcase, label: "Crops", href: "/Crops", id: "Crops" },
-  { icon: Database, label: "Database", href: "/database", id: "database" },
+  { icon: Database, label: "Withdraw", href: "/Withdraw", id: "Withdraw" },
    { icon: Briefcase, label: "Teams", href: "/teams", id: "teams" },
-  
+     { icon: Briefcase, label: "Virtualcrop", href: "/virtualcrop", id: "virtualcrop" },
 ]
 
 export function Sidebar() {
@@ -62,3 +62,59 @@ export function Sidebar() {
     </div>
   )
 }
+
+
+// "use client";
+
+// import { LayoutDashboard, Briefcase, Database } from "lucide-react";
+// import { cn } from "@/lib/utils";
+// import { Button } from "@/components/ui/button";
+// import Link from "next/link";
+// import { usePathname } from "next/navigation";
+// import usePermissions from "@/hooks/usePermissions";
+
+// const MENU_ITEMS = [
+//   { id: "dashboard", label: "Dashboard", icon: LayoutDashboard, href: "/dashboard" },
+//   { id: "crops", label: "Crops", icon: Briefcase, href: "/crops" },
+//   { id: "database", label: "Database", icon: Database, href: "/database" },
+//   { id: "teams", label: "Teams", icon: Briefcase, href: "/teams" },
+// ];
+
+// export function Sidebar() {
+//   const pathname = usePathname();
+//   const { allowedRoutes, loading } = usePermissions();
+
+//   if (loading) return <div className="p-6">Loading...</div>;
+
+//   const visibleItems = MENU_ITEMS.filter((item) =>
+//     allowedRoutes.includes(item.id)
+//   );
+
+//   return (
+//     <div className="flex flex-col h-screen w-64 border-r bg-white">
+//       <div className="text-center py-6 text-xl font-bold">LOGO</div>
+
+//       <nav className="flex-1 px-3 space-y-2">
+
+//         {visibleItems.map((item) => {
+//           const isActive = pathname.startsWith(item.href);
+//           return (
+//             <Link key={item.id} href={item.href}>
+//               <Button
+//                 variant="ghost"
+//                 className={cn(
+//                   "w-full justify-start h-11",
+//                   isActive && "bg-gradient-to-r from-[#79FFC3] to-[#78EEFF]"
+//                 )}
+//               >
+//                 <item.icon className="h-4 w-4 mr-2" />
+//                 {item.label}
+//               </Button>
+//             </Link>
+//           );
+//         })}
+
+//       </nav>
+//     </div>
+//   );
+// }

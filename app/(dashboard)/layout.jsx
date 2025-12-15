@@ -30,7 +30,7 @@ const layout = ({ children }) => {
                 <Navbar />
                 <ScrollArea className="px-6">
                     {children}
-                    <div className="h-4"></div>
+        
                 </ScrollArea>
             </div>
         </div>
